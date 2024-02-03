@@ -52,5 +52,6 @@ def test_google_search_list(driver, search_text):
     #     input_text.send_keys(data[n])
     #     n = n + 1
     # time.sleep(1)
+    #
 
     # input_text.send_keys(Keys.RETURN) # TODO запонить как работает
