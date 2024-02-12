@@ -49,7 +49,7 @@ def test_add_bbrfactory_com():
     # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
 
     actions = ActionChains (driver)
-    actions.move_by_offset(863, 137).perform()
+    actions.move_by_offset(900, 147).perform()
     actions.click().perform()
 
 
