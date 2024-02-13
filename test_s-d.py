@@ -33,28 +33,34 @@ def test_add_bbrfactory_com():
 
     item_name = wait_of_element_located(xpath='//*[@id="main-nav"]/ul/li[2]/a', driver=driver)
     item_name.click()
-
+    time.sleep(5)
     # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
     item_name = wait_of_element_located(xpath='//*[@id="categories-wrapper"]/ul/li[5]/a', driver=driver)
     item_name.click()
-
+    time.sleep(5)
     # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
     item_name = wait_of_element_located(xpath='//*[@title="Джим Вернулся 254"]', driver=driver)
     item_name.click()
-
+    time.sleep(5)
     # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
     item_name = wait_of_element_located(xpath='//*[@id="button-cart"]', driver=driver)
     item_name.click()
-
+    time.sleep(5)
     # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
 
     actions = ActionChains (driver)
     actions.move_by_offset(900, 147).perform()
     actions.click().perform()
 
-
     time.sleep(5)
+    # Проверка элемента
 
+    item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_form_0"]/div/div[1]/div[1]/h1', driver=driver)
+
+    if item_name.text == "Оформление заказа":
+        print ("Оформление заказа находится в заголовке")
+    else:
+        print ("Оформление заказа не находится в заголовке")
 
 if __name__ == '__main__':
     test_add_bbrfactory_com()
