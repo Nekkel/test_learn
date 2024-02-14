@@ -91,15 +91,14 @@ def test_add_bbrfactory_com():
 
     item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[1]/table/tbody/tr/td[4]/div/input', driver=driver)
 
-    if item_name.text == "2":
+    if item_name.get_attribute("value")  == "2":
 
-        print ("Количество соответствует")
+        print("Количество соответствует")
     else:
-        print ("Количество не соответствует")
+        print("Количество не соответствует")
 
 
 
 if __name__ == '__main__':
     test_add_bbrfactory_com()
-
 
