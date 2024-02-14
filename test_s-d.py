@@ -62,5 +62,44 @@ def test_add_bbrfactory_com():
     else:
         print ("Оформление заказа не находится в заголовке")
 
+        # Проверка стоимости
+
+    item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[2]/div[2]/span[2]', driver=driver)
+
+    if item_name.text == "Итого: 18 500р.":
+        print ("Стоимость соответствует")
+    else:
+        print ("Стоимость не соответствует")
+
+    # Увеличиваем количество элементов
+
+    item_name = wait_of_element_located(xpath='//*[@id="simplecheckout_cart"]/div[1]/table/tbody/tr/td[4]/div/span[2]/button[1]/img', driver=driver)
+    item_name.click()
+    time.sleep(5)
+
+    # Проверка стоимости
+
+    item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[2]/div[2]/span[2]', driver=driver)
+
+    if item_name.text == "Итого: 37 000р.":
+        print ("Стоимость соответствует")
+    else:
+        print ("Стоимость не соответствует")
+
+
+    # Проверка количества
+
+    item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[1]/table/tbody/tr/td[4]/div/input', driver=driver)
+
+    if item_name.text == "2":
+
+        print ("Количество соответствует")
+    else:
+        print ("Количество не соответствует")
+
+
+
 if __name__ == '__main__':
     test_add_bbrfactory_com()
+
+
