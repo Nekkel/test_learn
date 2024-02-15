@@ -79,7 +79,7 @@ def test_add_bbrfactory_com():
 
     # Проверка стоимости
 
-    item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[2]/div[2]/span[2]', driver=driver)
+    item_name = wait_of_element_located(xpath='//*[@id="simplecheckout_cart"]/div[2]/div[2]/span[2]', driver=driver)
 
     if item_name.text == "Итого: 37 000р.":
         print ("Стоимость соответствует")
@@ -91,14 +91,33 @@ def test_add_bbrfactory_com():
 
     item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[1]/table/tbody/tr/td[4]/div/input', driver=driver)
 
-    if item_name.get_attribute("value")  == "2":
+    if item_name.get_attribute("value") == "2":
 
         print("Количество соответствует")
     else:
         print("Количество не соответствует")
 
+    # листаем до конца страницы
 
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+
+    # нажимаем кнопку"Оплатить заказ"
+
+    item_name = wait_of_element_located(xpath='//*[@id="simplecheckout_button_confirm"]', driver=driver)
+    item_name.click()
+    time.sleep(5)
+
+    # проверяем наличие ошибки под полем e-mail
+
+    item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_customer"]/div[2]/fieldset/div[1]/div/div/div[2]', driver=driver)
+
+    if item_name.text == "Некорректный адрес электронной почты!":
+
+        print("Ошибка подтвердилась")
+    else:
+        print("Ошибка не подтвердилась")
 
 if __name__ == '__main__':
     test_add_bbrfactory_com()
+
 
