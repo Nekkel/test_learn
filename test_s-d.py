@@ -88,7 +88,7 @@ def test_add_bbrfactory_com():
         print("Ошибка не подтвердилась")
     # Проверка цвета ошибки
     item_name = wait_of_element_located(xpath='//*[@id="simplecheckout_customer"]/div[2]/fieldset/div[1]/div/div/div[2]', driver=driver)
-    if item_name.value_of_css_property("color") == "FF0000":
+    if item_name.find_element(By.CSS_SELECTOR, ".simplecheckout-error-text").get_attribute("color") == "#FF0000":
         print("Цвет ошибки соответствует")
     else:
         print("Цвет ошибки не соответствует")
