@@ -25,28 +25,28 @@ def test_add_bbrfactory_com():
     driver = webdriver.Chrome(options=options)
     driver.get("https://shop.bbrfactory.com/")
 
-    # Setup chrome driver
+    # Устанавливаем удобное нам разрешение экрана
     driver.set_window_size(1920, 1080)
 
 
-    # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
+    # Поиск и ождиание прогрузки ссылки категории магазина и клик по ссылке
 
     item_name = wait_of_element_located(xpath='//*[@id="main-nav"]/ul/li[2]/a', driver=driver)
     item_name.click()
     time.sleep(5)
-    # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
+    # Поиск и ождиание прогрузки элемента категории магазина и клик по ссылке
     item_name = wait_of_element_located(xpath='//*[@id="categories-wrapper"]/ul/li[5]/a', driver=driver)
     item_name.click()
     time.sleep(5)
-    # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
+    # Поиск и ождиание прогрузки товара магазина и клик по ссылке
     item_name = wait_of_element_located(xpath='//*[@title="Джим Вернулся 254"]', driver=driver)
     item_name.click()
     time.sleep(5)
-    # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
+    # Поиск и ождиание прогрузки корзины магазина и клик по корзине
     item_name = wait_of_element_located(xpath='//*[@id="button-cart"]', driver=driver)
     item_name.click()
     time.sleep(5)
-    # Поиск и ождиание прогрузки ссылки элемента товара магазина и клик по ссылке
+    # Поиск и ождиание прогрузки субссылки корзины магазина и клик по ссылке
 
     actions = ActionChains (driver)
     actions.move_by_offset(900, 147).perform()
@@ -62,7 +62,7 @@ def test_add_bbrfactory_com():
     else:
         print ("Оформление заказа не находится в заголовке")
 
-        # Проверка стоимости
+        # Проверка стоимости товара
 
     item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[2]/div[2]/span[2]', driver=driver)
 
@@ -77,7 +77,7 @@ def test_add_bbrfactory_com():
     item_name.click()
     time.sleep(5)
 
-    # Проверка стоимости
+    # Проверка стоимости товаров
 
     item_name = wait_of_element_located(xpath='//*[@id="simplecheckout_cart"]/div[2]/div[2]/span[2]', driver=driver)
 
@@ -87,7 +87,7 @@ def test_add_bbrfactory_com():
         print ("Стоимость не соответствует")
 
 
-    # Проверка количества
+    # Проверка количества товаров
 
     item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_cart"]/div[1]/table/tbody/tr/td[4]/div/input', driver=driver)
 
@@ -101,7 +101,7 @@ def test_add_bbrfactory_com():
 
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
 
-    # нажимаем кнопку"Оплатить заказ"
+    # нажимаем кнопку "Оплатить заказ"
 
     item_name = wait_of_element_located(xpath='//*[@id="simplecheckout_button_confirm"]', driver=driver)
     item_name.click()
@@ -121,7 +121,7 @@ def test_add_bbrfactory_com():
 
     item_name = wait_of_element_located( xpath='//*[@id="simplecheckout_customer"]/div[2]/fieldset/div[1]/div/div/div[2]', driver=driver)
 
-    if item_name.get_attribute("colour") == "#FF0000":
+    if item_name.get_attribute("color") == "#FF0000":
 
         print("Цвет ошибки соответствует")
     else:
@@ -129,4 +129,5 @@ def test_add_bbrfactory_com():
 
 if __name__ == '__main__':
     test_add_bbrfactory_com()
+
 
