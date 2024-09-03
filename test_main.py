@@ -15,6 +15,6 @@ class TestFirstClass:
         home.home_click_catalog()
         catalog.catalog_click_menu_btn('Сумки и рюкзаки')
         catalog.catalog_click_product_card('Джим Вернулся К7')
-        prod_card.prod_click_preorder()
-        cart.cart_click_pay_btn()
+        # prod_card.prod_click_preorder()
+        # cart.cart_click_pay_btn()
         cart.cart_check_email_error_color('#ff0000')

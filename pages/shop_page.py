@@ -27,9 +27,9 @@ class BasePage:
     def find_and_click(self, xpath):
         self.wait_element(xpath).click()
 
-    def click(self, xpath):
-        element = self.driver.find_element(By.XPATH, xpath)
-        element.click()
+    # def click(self, xpath):
+    #     element = self.driver.find_element(By.XPATH, xpath)
+    #     element.click()
 
     def check_color(self, element, exp_color):
         e_color = element.value_of_css_property("color")
